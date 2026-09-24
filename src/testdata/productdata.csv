@@ -1,0 +1,5 @@
+searchkey,productname,productheader,imagecount,brand,productcode,rewardpoints,availability,productprice,extraprice
+macbook,MacBook Pro,MacBook Pro,4,Apple,Product 18,"800",Out Of Stock,"$2,000.00","$2,000.00"
+macbook,MacBook Air,MacBook Air,4,Apple,Product 17,"700",Out Of Stock,"$1,202.00","$1,000.00"
+imac,iMac,iMac,3,Apple,Product 14,"N/A",Out Of Stock,$122.00,$100.00
+samsung,Samsung Galaxy Tab 10.1,Samsung Galaxy Tab 10.1,7,"N/A",SAM1,1000,Pre-Order,$241.99,$199.99

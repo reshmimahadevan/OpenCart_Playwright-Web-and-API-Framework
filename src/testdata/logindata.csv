@@ -1,0 +1,5 @@
+//Avoid testdata in fixture as it will br running in sequential mode
+username,password
+invalid@open.com,wrong123
+,Reshmi@1234
+reshmiplaywright@gmail.com,
