@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import reportingLabs from './reporting-labs.config';
 
 import dotenv from 'dotenv';
 
@@ -25,12 +26,15 @@ export default defineConfig({
     ["allure-playwright", {
       outputFolder: "allure-results",
       suiteTitle: true,
-    }]
+    }],
+    ['reporting-labs', reportingLabs]
   ],
   use: {
     baseURL: process.env.BASE_URL,
     headless: false,
     trace: 'on-first-retry',
+    screenshot :'on',
+    video:'on'
   },
 
   /* Configure projects for major browsers */

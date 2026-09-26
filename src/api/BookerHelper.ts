@@ -44,7 +44,8 @@ export class BookerHelper {
         let response = await this.request.put(`${this.baseURL}${endPoint}`, {
             headers: {
                 'Content-Type': contentType,
-                'Accept': accept
+                'Accept': accept,
+                ...headers
             },
             data
         });
@@ -58,10 +59,11 @@ export class BookerHelper {
 
     // PATCH
     async patch(endPoint: string, data: object, headers?: Record<string, string>, contentType: string = 'application/json', accept: string = 'application/json') {
-        let response = await this.request.put(`${this.baseURL}${endPoint}`, {
+        let response = await this.request.patch(`${this.baseURL}${endPoint}`, {
             headers: {
                 'Content-Type': contentType,
-                'Accept': accept
+                'Accept': accept,
+                ...headers
             },
             data
         });
@@ -77,13 +79,14 @@ export class BookerHelper {
     async delete(endPoint: string, headers?: Record<string, string>,contentType: string = 'application/json') {
         let response = await this.request.delete(`${this.baseURL}${endPoint}`, {
             headers:{
-                'Content-Type' :contentType
+                'Content-Type' :contentType,
+                ...headers
             }
         });
         console.log(response.status());
 
         return {
-            status: response.status(),
+            status: response.status()
         }
     }
 }

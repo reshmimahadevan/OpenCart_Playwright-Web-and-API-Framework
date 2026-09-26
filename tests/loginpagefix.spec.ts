@@ -5,6 +5,7 @@ import { JsonHelper } from '../src/utils/JsonHelper';
 
 import { test, expect } from '../src/fixtures/pagefixtures';
 import * as allure from "allure-js-commons";
+import { log, meta, testData } from 'reporting-labs';
 
 test.beforeEach(async ({ loginPage }) => {
     await loginPage.goToLoginPage();
@@ -12,34 +13,43 @@ test.beforeEach(async ({ loginPage }) => {
 
 //AAA
 test('login page title test', async ({ loginPage }) => {
+    meta({ priority: 'P2', severity: 'minor', owner: 'Reshmi', story: 'US101', epic: 'ep300', feature: 'F30', issue: 'bug34' });
+
     let pageTitle = await loginPage.getLoginPageTitle();
     console.log('Login page title : ', pageTitle);
+
+    await log('Login page title : ', pageTitle);
     expect(pageTitle).toBe('Account Login');
 });
 
 test('forgot pwd link exist test', async ({ loginPage }) => {
+
+    meta({ priority: 'P1', severity: 'critical', owner: 'Sudha', story: 'US102', epic: 'ep300', feature: 'F31', issue: 'bug35' });
     expect(await loginPage.isForgottenPwdLinkExist()).toBeTruthy();
 });
 
 test('user is able to login to app with valid credentials', async ({ loginPage, homePage }) => {
 
-  await allure.suite("Login Tests");
-  await allure.severity("critical");
-  await allure.feature("Authentication");
-  await allure.story("Valid Login");
-  await allure.description("Verify user can login with valid credentials");
+    meta({ priority: 'P1', severity: 'blocker', owner: 'Bhavika', story: 'US102', epic: 'ep300', feature: 'F31', issue: 'bug35' });
+    await testData({ username: process.env.USERNAME!, password: process.env.PASSWORD! }, 'Login');
 
-  await allure.step("Login with valid creds", async () => {
-    await loginPage.doLogin(process.env.LOGIN_EMAIL!, process.env.LOGIN_PASSWORD!);
-  });
+    await allure.suite("Login Tests");
+    await allure.severity("critical");
+    await allure.feature("Authentication");
+    await allure.story("Valid Login");
+    await allure.description("Verify user can login with valid credentials");
 
-  await allure.step("Verify logout link is visible", async () => {
-    expect.soft(await homePage.isLogoutLinkExist()).toBeTruthy();
-  });
+    await allure.step("Login with valid creds", async () => {
+        await loginPage.doLogin(process.env.LOGIN_EMAIL!, process.env.LOGIN_PASSWORD!);
+    });
 
-  await allure.step("Verify logout link is visible", async () => {
-    expect.soft(await homePage.getHomePageTitle()).toBe('My Account');
-  });
+    await allure.step("Verify logout link is visible", async () => {
+        expect.soft(await homePage.isLogoutLinkExist()).toBeTruthy();
+    });
+
+    await allure.step("Verify logout link is visible", async () => {
+        expect.soft(await homePage.getHomePageTitle()).toBe('My Account');
+    });
 
 });
 
@@ -60,6 +70,8 @@ let testCSVData = CsvHelper.readCsv('src/testdata/logindata.csv');
 //3 sets of data is present in logindata.csv do testname is duplicated so adding row.username and row.password
 for (let row of testCSVData) {
     test(`login to app with invalid credentials with CSV data - ${row.username} - ${row.password}`, async ({ loginPage, homePage }) => {
+         meta({ priority: 'P2', severity: 'major', owner: 'Mahadevan', story: 'US103', epic: 'ep301', feature: 'F32', issue: 'bug36' });
+         await testData(testCSVData, 'Invalid Login Data');
         await loginPage.doLogin(row.username, row.password);
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
     });
@@ -72,6 +84,8 @@ for (let row of testCSVData) {
 let testExcelData = ExcelHelper.readExcel('src/testdata/opencarttestdata.xlsx', 'login');
 for (let row of testExcelData) {
     test(`login to app with invalid credentials with Excel Data- ${row.username} - ${row.password}`, async ({ loginPage, homePage }) => {
+         meta({ priority: 'P2', severity: 'major', owner: 'Mahadevan', story: 'US103', epic: 'ep301', feature: 'F32', issue: 'bug36' });
+         await testData(testExcelData, 'Invalid Login Data');
         await loginPage.doLogin(row.username, row.password);
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
     });
@@ -83,6 +97,8 @@ for (let row of testExcelData) {
 let testJSONData = JsonHelper.readJson('src/testdata/logindata.json');
 for (let row of testJSONData) {
     test(`login to app with invalid credentials with JSON Data- ${row.username} - ${row.password}`, async ({ loginPage, homePage }) => {
+        meta({ priority: 'P2', severity: 'major', owner: 'Mahadevan', story: 'US103', epic: 'ep301', feature: 'F32', issue: 'bug36' });
+        await testData(testJSONData, 'Invalid Login Data');
         await loginPage.doLogin(row.username, row.password);
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
     });
