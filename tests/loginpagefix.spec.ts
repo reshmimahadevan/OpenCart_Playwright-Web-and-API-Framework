@@ -4,6 +4,7 @@ import { JsonHelper } from '../src/utils/JsonHelper';
 
 
 import { test, expect } from '../src/fixtures/pagefixtures';
+import * as allure from "allure-js-commons";
 
 test.beforeEach(async ({ loginPage }) => {
     await loginPage.goToLoginPage();
@@ -21,11 +22,26 @@ test('forgot pwd link exist test', async ({ loginPage }) => {
 });
 
 test('user is able to login to app with valid credentials', async ({ loginPage, homePage }) => {
-    await loginPage.doLogin(process.env.LOGIN_EMAIL!, process.env.LOGIN_PASSWORD!);
-    expect.soft(await homePage.isLogoutLinkExist()).toBeTruthy();
-    expect.soft(await homePage.getHomePageTitle()).toBe('My Account');
-});
 
+  await allure.suite("Login Tests");
+  await allure.severity("critical");
+  await allure.feature("Authentication");
+  await allure.story("Valid Login");
+  await allure.description("Verify user can login with valid credentials");
+
+  await allure.step("Login with valid creds", async () => {
+    await loginPage.doLogin(process.env.LOGIN_EMAIL!, process.env.LOGIN_PASSWORD!);
+  });
+
+  await allure.step("Verify logout link is visible", async () => {
+    expect.soft(await homePage.isLogoutLinkExist()).toBeTruthy();
+  });
+
+  await allure.step("Verify logout link is visible", async () => {
+    expect.soft(await homePage.getHomePageTitle()).toBe('My Account');
+  });
+
+});
 
 //DD_0: using test data from fixtures: sequence run
 test(`login to app with invalid credentials with fixture data`, async ({ loginPage, testData }) => {
