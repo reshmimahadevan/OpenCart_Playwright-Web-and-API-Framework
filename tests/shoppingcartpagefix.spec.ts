@@ -2,7 +2,7 @@
 
     test.beforeEach(async ({ loginPage,shoppingCartPage, page }) => {
         await loginPage.goToLoginPage();
-        await loginPage.doLogin(process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
+        await loginPage.doLogin(process.env.LOGIN_EMAIL!, process.env.LOGIN_PASSWORD!);
         await shoppingCartPage.clearCart(); 
     });
 

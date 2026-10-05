@@ -15,7 +15,7 @@ test.beforeEach(async ({ loginPage }) => {
 test('login page title test', async ({ loginPage }) => {
     meta({ priority: 'P2', severity: 'minor', owner: 'Reshmi', story: 'US101', epic: 'ep300', feature: 'F30', issue: 'bug34' });
 
-    let pageTitle = await loginPage.getLoginPageTitle();
+    let pageTitle = await loginPage.getPageTitle();
     console.log('Login page title : ', pageTitle);
 
     await log('Login page title : ', pageTitle);
@@ -105,7 +105,19 @@ for (let row of testJSONData) {
 };
 
 
+//common features test:
+test('App logo exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isLogoVisible()).toBeTruthy();
+});
 
+test('Search Box exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isSearchBoxVisible()).toBeTruthy();
+});
 
-//multiple window array code
-//fw updated code
+test('Cart exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isCartButtonVisible()).toBeTruthy();
+});
+
+test('Footers exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.getPageFootersCount()).toBe(16);
+});

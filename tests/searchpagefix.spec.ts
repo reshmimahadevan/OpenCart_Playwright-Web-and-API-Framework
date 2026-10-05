@@ -4,7 +4,7 @@ import { CsvHelper } from '../src/utils/CsvHelper';
 
 test.beforeEach(async ({ loginPage }) => {
     await loginPage.goToLoginPage();
-    await loginPage.doLogin(process.env.LOGIN_EMAIl!, process.env.LOGIN_PASSWORD!);
+    await loginPage.doLogin(process.env.LOGIN_EMAIL!, process.env.LOGIN_PASSWORD!);
 });
 
 
@@ -26,3 +26,20 @@ for (let row of productData) {
         expect(await page.title()).toBe(row.productname);
     });
 }
+
+//common features test:
+test('App logo exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isLogoVisible()).toBeTruthy();
+});
+
+test('Search Box exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isSearchBoxVisible()).toBeTruthy();
+});
+
+test('Cart exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isCartButtonVisible()).toBeTruthy();
+});
+
+test('Footers exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.getPageFootersCount()).toBe(16);
+});

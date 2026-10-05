@@ -37,6 +37,7 @@ export class ShoppingCartPage extends BasePage {
             .locator('button[title="Remove"], button[data-original-title="Remove"]');
 
         while (await this.page.locator('#content table.table tbody tr').count() > 0) {
+        //while (await removeButton.count() > 0) {
             await removeButton.click();
             await this.page.waitForLoadState('networkidle');
         }

@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
 
 //AAA
 test.skip('login page title test', async () => {
-    let pageTitle = await loginPage.getLoginPageTitle();
+    let pageTitle = await loginPage.getPageTitle();
     console.log('Login page title : ', pageTitle);
     expect(pageTitle).toBe('Account Login');
 });

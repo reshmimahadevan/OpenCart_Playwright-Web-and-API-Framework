@@ -63,3 +63,20 @@ for (let row of testCSVData) {
         await productInfoPage.shoppingCartNavigation();
     });
 }
+
+//common features test:
+test('App logo exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isLogoVisible()).toBeTruthy();
+});
+
+test('Search Box exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isSearchBoxVisible()).toBeTruthy();
+});
+
+test('Cart exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isCartButtonVisible()).toBeTruthy();
+});
+
+test('Footers exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.getPageFootersCount()).toBe(16);
+});
