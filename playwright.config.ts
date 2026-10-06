@@ -20,8 +20,8 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   //Undefined -> take 50 per by default
   workers: process.env.CI ? 2 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: process.env.CI ? [
+  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
     ['list'],
     ['html', { outputFolder: "reports/html-report", open: "never" }],
     ["allure-playwright", {
@@ -43,6 +43,8 @@ export default defineConfig({
 
   use: {
     baseURL: process.env.BASE_URL,
+    //By default CI = true
+    //Local:false/CI:true
     headless: !process.env.CI ? false : true,
     trace: 'on-first-retry',
     screenshot: 'on',
