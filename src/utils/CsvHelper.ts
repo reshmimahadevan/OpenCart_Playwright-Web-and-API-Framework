@@ -8,6 +8,7 @@ export class CsvHelper {
         return parse(fs.readFileSync(filePath, 'utf-8'), {
             columns: true, //first row as headers
             skip_empty_lines: true,
+            bom:true,
             trim: true,
         }) as Record<string, string>[];
     }
