@@ -21,12 +21,17 @@ test.beforeEach(async ({ page }) => {
    
 });
 
-for (const u of users) {
-  test(`user is able to register: ${u.firstname}`, async ({ page }) => {
+for (const row of users) {
+  test(`register to app with CSV data - ${row.firstname} - ${row.lastname}`, async ({ page }) => {
     await registerPage.fillRegisterForm(
-      u.firstname, u.lastname, uniqueEmail(u.email),
-      u.telephone, u.password, u.confirmpassword
+      row.firstname,
+      row.lastname,
+      uniqueEmail(row.email),   
+      row.telephone,
+      row.password,
+      row.confirmpassword
     );
+
     await expect(
       page.getByRole('heading', { name: 'Your Account Has Been Created!', level: 1 })
     ).toBeVisible();
