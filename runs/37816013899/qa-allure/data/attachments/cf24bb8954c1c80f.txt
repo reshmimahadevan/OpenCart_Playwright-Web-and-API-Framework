@@ -1,0 +1,9 @@
+token api response:  {
+  access_token: 'BQCLQ6lvBxU310CF7wMS10G6wrncOZ7hQEqk4xzu1DGoV5sLG1HWnWAp7HF-FSfEwB-dwJjoG1lkJ_jTT0efVtig-M2eIXukwCgGhJM7aCgNs0HZIi4B3Rth6Vspc7QLFyqKtb1zT1hz',
+  token_type: 'Bearer',
+  expires_in: 3600
+}
+access token:  BQCLQ6lvBxU310CF7wMS10G6wrncOZ7hQEqk4xzu1DGoV5sLG1HWnWAp7HF-FSfEwB-dwJjoG1lkJ_jTT0efVtig-M2eIXukwCgGhJM7aCgNs0HZIi4B3Rth6Vspc7QLFyqKtb1zT1hz
+0
+Introduction
+2014-11-11

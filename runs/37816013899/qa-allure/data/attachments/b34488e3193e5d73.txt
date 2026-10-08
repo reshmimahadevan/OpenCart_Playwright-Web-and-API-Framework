@@ -1,0 +1,13 @@
+user creds: reshmiplaywright@gmail.com - Reshmi@123
+search key:  imac
+product name:  iMac
+Actual Product Details:  Map(8) {
+  'productheader' => 'iMac',
+  'productimagescount' => 3,
+  'Brand' => 'Apple',
+  'Product Code' => 'Product 14',
+  'Availability' => 'Out Of Stock',
+  'Reward Points' => 'N/A',
+  'productprice' => '$122.00',
+  'extaxprice' => '$100.00'
+}
