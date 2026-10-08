@@ -1,0 +1,13 @@
+user creds: reshmiplaywright@gmail.com - Reshmi@123
+search key:  macbook
+product name:  MacBook Air
+Actual Product Details:  Map(8) {
+  'productheader' => 'MacBook Air',
+  'productimagescount' => 4,
+  'Brand' => 'Apple',
+  'Product Code' => 'Product 17',
+  'Reward Points' => '700',
+  'Availability' => 'Out Of Stock',
+  'productprice' => '$1,202.00',
+  'extaxprice' => '$1,000.00'
+}

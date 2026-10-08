@@ -1,0 +1,9 @@
+token api response:  {
+  access_token: 'BQD3BfagXIZMh8x13qRrXVU9mFpHUQcJFfx8zxkSO9WrD7LjKYwQQiv_aGcpX7axJ0CBCo3VwFDh2Jr7MnOjtrHe9t2dWvD_lRDvsqqN_LzaJxn8ddjS6KPEN7JUQNeUf7zOqLt4DTLE',
+  token_type: 'Bearer',
+  expires_in: 3600
+}
+access token:  BQD3BfagXIZMh8x13qRrXVU9mFpHUQcJFfx8zxkSO9WrD7LjKYwQQiv_aGcpX7axJ0CBCo3VwFDh2Jr7MnOjtrHe9t2dWvD_lRDvsqqN_LzaJxn8ddjS6KPEN7JUQNeUf7zOqLt4DTLE
+0
+Introduction
+2014-11-11
