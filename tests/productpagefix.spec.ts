@@ -10,7 +10,7 @@ test.beforeEach(async ({ loginPage, page }) => {
 
 let testCSVData = CsvHelper.readCsv('src/testdata/product.csv');
 for (let row of testCSVData) {
-    test(`verify product header - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage, productInfoPage }) => {
+    test(`@smoke verify product header - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage, productInfoPage }) => {
         await homePage.doSearch(row.searchkey);
         await searchResultsPage.selectProduct(row.productname);
         expect(await productInfoPage.getProductHeader()).toBe(row.productname)
@@ -18,7 +18,7 @@ for (let row of testCSVData) {
 }
 
 for (let row of testCSVData) {
-    test(`verify product images count - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage, productInfoPage }) => {
+    test(`@smoke verify product images count - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage, productInfoPage }) => {
         await homePage.doSearch(row.searchkey);
         await searchResultsPage.selectProduct(row.productname);
         expect(await productInfoPage.getProductImagesCount()).toBe(Number(row.imagescount));
@@ -29,7 +29,7 @@ for (let row of testCSVData) {
 let testCSVProdData = CsvHelper.readCsv('src/testdata/productdata.csv');
 for (let row of testCSVProdData) {
 
-    test(`verify product information/data  - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage, productInfoPage }) => {
+    test(`@regression verify product information/data  - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage, productInfoPage }) => {
         await homePage.doSearch(row.searchkey);
         await searchResultsPage.selectProduct(row.productname);
 
@@ -53,7 +53,7 @@ for (let row of testCSVProdData) {
 }
 
 for (let row of testCSVData) {
-    test(`add to cart - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage, productInfoPage, page }) => {
+    test(`@regression add to cart - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage, productInfoPage, page }) => {
 
         await homePage.doSearch(row.searchkey);
         await searchResultsPage.selectProduct(row.productname);
@@ -65,18 +65,18 @@ for (let row of testCSVData) {
 }
 
 //common features test:
-test('App logo exists on Login Page', async ({ basePage }) => {
+test('@smoke App logo exists on Login Page', async ({ basePage }) => {
     expect(await basePage.isLogoVisible()).toBeTruthy();
 });
 
-test('Search Box exists on Login Page', async ({ basePage }) => {
+test('@smoke Search Box exists on Login Page', async ({ basePage }) => {
     expect(await basePage.isSearchBoxVisible()).toBeTruthy();
 });
 
-test('Cart exists on Login Page', async ({ basePage }) => {
+test('@smoke Cart exists on Login Page', async ({ basePage }) => {
     expect(await basePage.isCartButtonVisible()).toBeTruthy();
 });
 
-test('Footers exists on Login Page', async ({ basePage }) => {
+test('@smoke Footers exists on Login Page', async ({ basePage }) => {
     expect(await basePage.getPageFootersCount()).toBe(16);
 });

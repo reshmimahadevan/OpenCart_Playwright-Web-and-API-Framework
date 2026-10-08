@@ -17,7 +17,7 @@ test.beforeEach('generate the token', async ({ bookerHelper }) => {
 
 });
 
-test('booking CRUD with token', async ({ bookerHelper, page }) => {
+test('@regression booking CRUD with token', async ({ bookerHelper, page }) => {
 
     //1. create a new booking: POST -- no token needed:
     const bookingResponse = await bookerHelper.post('/booking', {

@@ -6,7 +6,7 @@
         await shoppingCartPage.clearCart(); 
     });
 
-    test('verify product details', async ({ homePage, searchResultsPage, productInfoPage, shoppingCartPage, page }) => {
+    test('@smoke verify product details', async ({ homePage, searchResultsPage, productInfoPage, shoppingCartPage, page }) => {
 
         await homePage.doSearch('macbook');
         await searchResultsPage.selectProduct('MacBook Pro');

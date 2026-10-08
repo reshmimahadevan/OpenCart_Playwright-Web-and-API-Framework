@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 //web app --> intercept the network calls and log them..
 //**/* --> wildcard pattern for URLs
 
-test('intercept and log requests', async ({ page }) => {
+test('@smoke intercept and log requests', async ({ page }) => {
 
     await page.route('**/*', async (route) => {
         console.log(route.request().method(), route.request().url());
@@ -21,7 +21,7 @@ test('intercept and log requests', async ({ page }) => {
 //mocking: fake data/response:
 
 
-test('mock search with fake JSON', async ({ page }) => {
+test('@smoke mock search with fake JSON', async ({ page }) => {
 
     //JS
     let fakeProducts = [
@@ -45,7 +45,7 @@ test('mock search with fake JSON', async ({ page }) => {
 });
 
 
-test('mock search page with fake HTML - Positive test case', async ({ page }) => {
+test('@smoke mock search page with fake HTML - Positive test case', async ({ page }) => {
 
     await page.route('**/index.php?route=product/search&search=macbook', async (route) => {
         await route.fulfill({
@@ -84,7 +84,7 @@ test('mock search page with fake HTML - Positive test case', async ({ page }) =>
     await page.pause();
 });
 
-test('mock search page with fake HTML - Negative test case - 1', async ({ page }) => {
+test('@smoke mock search page with fake HTML - Negative test case - 1', async ({ page }) => {
 
     await page.route('**/index.php?route=product/search&search=macbook', async (route) => {
         await route.fulfill({
@@ -99,7 +99,7 @@ test('mock search page with fake HTML - Negative test case - 1', async ({ page }
     await page.pause();
 });
 
-test('mock search page with fake HTML - Negative test case - 2', async ({ page }) => {
+test('@smoke mock search page with fake HTML - Negative test case - 2', async ({ page }) => {
 
     await page.route('**/index.php?route=product/search&search=macbook', async (route) => {
         await route.fulfill({

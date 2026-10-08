@@ -17,7 +17,7 @@ const ALBUM_ID = '4aawyAB9vmqN3uQ7FjRGTy';
 
 test.describe.serial('Spotify album flow', () => {
 
-    test('POST -- generate the access token', async ({ request }) => {
+    test('@smoke POST -- generate the access token', async ({ request }) => {
         const response = await request.post(OAUTH_CONFIG.tokenURL, {
             form: {
                 grant_type: OAUTH_CONFIG.grantType,
@@ -33,7 +33,7 @@ test.describe.serial('Spotify album flow', () => {
         expect(accessToken).toBeTruthy();
     });
 
-    test('GET -- fetch album and validate schema', async ({ request }) => {
+    test('@smoke GET -- fetch album and validate schema', async ({ request }) => {
         let response = await request.get(
             `https://api.spotify.com/v1/albums/${ALBUM_ID}`,
             {

@@ -54,7 +54,7 @@ let userArraySchema = {
     "items": JSON.parse(fs.readFileSync('./src/schema/userschema.json', 'utf-8'))
 }
 
-test('get a user - schema test', async ({ apiHelper }) => {
+test('@smoke get a user - schema test', async ({ apiHelper }) => {
 
     //User JS Object:
     let userData = {
@@ -86,7 +86,7 @@ test('get a user - schema test', async ({ apiHelper }) => {
 
 
 //Array
-test('get all users - schema test', async ({ apiHelper }) => {
+test('@smoke get all users - schema test', async ({ apiHelper }) => {
     //get all users:
     let getUsersResponse = await apiHelper.get(`/public/v2/users`, AUTH_HEADER);
     expect((getUsersResponse).status).toBe(200);

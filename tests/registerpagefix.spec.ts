@@ -11,7 +11,7 @@ const testCSVData = CsvHelper.readCsv('src/testdata/registerdata.csv');
 
 // Test names include firstname and lastname so they stay unique across the 3 CSV rows
 for (const row of testCSVData) {
-    test(`register to app with CSV data - ${row.firstname} - ${row.lastname}`, async ({ registerPage, page }) => {
+    test(`@smoke register to app with CSV data - ${row.firstname} - ${row.lastname}`, async ({ registerPage, page }) => {
         await registerPage.fillRegisterForm(
             row.firstname,
             row.lastname,
