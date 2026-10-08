@@ -527,7 +527,7 @@ jobs:
             echo "overall=✅ ALL PASSED" >> $GITHUB_OUTPUT
           fi
 
-          REPORT_BASE="https://github.com/reshmimahadevan.github.io/OpenCart_Playwright-Web-and-API-Framework/runs/${{ github.run_id }}"
+          REPORT_BASE="https://reshmimahadevan.github.io/OpenCart_Playwright-Web-and-API-Framework/runs/${{ github.run_id }}"
           echo "report_url=${REPORT_BASE}" >> $GITHUB_OUTPUT
 
       - name: Download All Reports
