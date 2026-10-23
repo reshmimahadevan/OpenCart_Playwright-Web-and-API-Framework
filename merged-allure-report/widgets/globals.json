@@ -1,1 +1,0 @@
-{"errors":[{"timestamp":1792721876200,"message":"beforeEach hook failed: Test timeout of 30000ms exceeded while running \"beforeEach\" hook.","trace":"Test timeout of 30000ms exceeded while running \"beforeEach\" hook.\n    at /app/tests/shoppingcartpagefix.spec.ts:3:10"}],"attachments":[]}

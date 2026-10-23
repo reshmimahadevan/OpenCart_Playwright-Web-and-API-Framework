@@ -1,2 +1,0 @@
-user creds: reshmiplaywright@gmail.com - Reshmi@123
-home page headers:  [ 'My Account', 'My Orders', 'My Affiliate Account', 'Newsletter' ]
