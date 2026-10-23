@@ -1,0 +1,15 @@
+{
+  id: 8681042,
+  name: 'Reshmi',
+  email: 'pwautomation_1792730248501@open.com',
+  gender: 'female',
+  status: 'active'
+} 201
+created user id :  8681042
+{
+  id: 8681042,
+  name: 'Reshmi',
+  email: 'pwautomation_1792730248501@open.com',
+  gender: 'female',
+  status: 'active'
+} 200

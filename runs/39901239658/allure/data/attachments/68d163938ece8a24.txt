@@ -1,0 +1,13 @@
+user creds: reshmiplaywright@gmail.com - Reshmi@123
+search key:  samsung
+product name:  Samsung Galaxy Tab 10.1
+Actual Product Details:  Map(8) {
+  'productheader' => 'Samsung Galaxy Tab 10.1',
+  'productimagescount' => 7,
+  'Product Code' => 'SAM1',
+  'Reward Points' => '1000',
+  'Availability' => 'Pre-Order',
+  'Brand' => 'N/A',
+  'productprice' => '$241.99',
+  'extaxprice' => '$199.99'
+}
