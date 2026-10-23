@@ -22,6 +22,7 @@ export default defineConfig({
   workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI ? [
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+    ['blob'],
     ['list'],
     ['html', { outputFolder: "reports/html-report", open: "never" }],
     ["allure-playwright", {
@@ -32,6 +33,7 @@ export default defineConfig({
   ]
     :
     [
+      ["blob", { outputDir: "blob-report" }],
       ['list'],
       ['html', { outputFolder: "reports/html-report", open: "never" }],
       ["allure-playwright", {
